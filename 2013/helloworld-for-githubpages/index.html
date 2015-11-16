@@ -1,0 +1,964 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="GitHub Pages,Jekyll,免费博客," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="云淡风轻" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.0" />
+
+
+
+
+
+
+<meta name="description" content="对于在Github上搭建免费Blog，我起先一无所知(好吧，知道你们会汗颜)。某一天，好友诺兰德说他为了应付面试(哈哈，请不要在意这些细节)，而加班加点的赶了一个Blog出来，看了他的Blog之后，我很好奇，就让他给我说说是怎么搭建的。他就直接丢了一个教程链接给我，研究了一天，然后就开始了我自己的Blog之旅。好吧，闲话有点多了，下面开始咱们的Blog之旅吧。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="利用Github Pages和Jekyll搭建无限流量的免费Blog">
+<meta property="og:url" content="https://ioliu.cn/2013/helloworld-for-githubpages/index.html">
+<meta property="og:site_name" content="云淡风轻">
+<meta property="og:description" content="对于在Github上搭建免费Blog，我起先一无所知(好吧，知道你们会汗颜)。某一天，好友诺兰德说他为了应付面试(哈哈，请不要在意这些细节)，而加班加点的赶了一个Blog出来，看了他的Blog之后，我很好奇，就让他给我说说是怎么搭建的。他就直接丢了一个教程链接给我，研究了一天，然后就开始了我自己的Blog之旅。好吧，闲话有点多了，下面开始咱们的Blog之旅吧。">
+<meta property="og:image" content="https://ioliu.cn//dn-ioliu.qbox.me/octojekyll.png">
+<meta property="og:image" content="https://ioliu.cn//dn-ioliu.qbox.me/gitinstall.jpg">
+<meta property="og:updated_time" content="2015-11-16T15:21:24.797Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="利用Github Pages和Jekyll搭建无限流量的免费Blog">
+<meta name="twitter:description" content="对于在Github上搭建免费Blog，我起先一无所知(好吧，知道你们会汗颜)。某一天，好友诺兰德说他为了应付面试(哈哈，请不要在意这些细节)，而加班加点的赶了一个Blog出来，看了他的Blog之后，我很好奇，就让他给我说说是怎么搭建的。他就直接丢了一个教程链接给我，研究了一天，然后就开始了我自己的Blog之旅。好吧，闲话有点多了，下面开始咱们的Blog之旅吧。">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: '[object Object]',
+    fancybox: true,
+    motion: true
+  };
+</script>
+
+  <title> 利用Github Pages和Jekyll搭建无限流量的免费Blog | 云淡风轻 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-61934506-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?9cab9232535f34b793312a5204874e45";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">云淡风轻</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">一个安静的角落</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                利用Github Pages和Jekyll搭建无限流量的免费Blog
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2013-12-14T12:49:18+08:00" content="2013-12-14">
+              2013-12-14
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Jekyll/" itemprop="url" rel="index">
+                    <span itemprop="name">Jekyll</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2013/helloworld-for-githubpages/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2013/helloworld-for-githubpages/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2013/helloworld-for-githubpages/" class="leancloud_visitors" data-flag-title="利用Github Pages和Jekyll搭建无限流量的免费Blog">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="//dn-ioliu.qbox.me/octojekyll.png" alt="Jekyll">  </p>
+<p>对于在Github上搭建免费Blog，我起先一无所知(好吧，知道你们会汗颜)。某一天，好友<code>诺兰德</code>说他为了应付面试(哈哈，请不要在意这些细节)，而加班加点的赶了一个Blog出来，看了他的Blog之后，我很好奇，就让他给我说说是怎么搭建的。他就直接丢了一个教程链接给我，研究了一天，然后就开始了我自己的Blog之旅。好吧，闲话有点多了，下面开始咱们的Blog之旅吧。<br><a id="more"></a></p>
+<h3 id="一、Github和Jekyll是什么？">一、Github和Jekyll是什么？</h3><p><a href="http://github.com" title="Github" target="_blank" rel="external">Github</a>:是一个具有版本管理功能的代码仓库，每个项目都有一个主页，列出项目的源文件。  </p>
+<p><a href="https://pages.github.com/" title="Github Pages" target="_blank" rel="external">Github Pages</a>:对于一个新手来说，看到一大堆源码，只会让人头晕脑涨，不知何处入手。他希望看到的是，一个简明易懂的网页，说明每一步应该怎么做。因此，github就设计了Pages功能，允许用户自定义项目首页，用来替代默认的源码列表。所以，<code>github Pages可以被认为是用户编写的、托管在github上的静态网页</code>。github提供模板，允许站内生成网页，但也允许用户自己编写网页，然后上传。有意思的是，这种上传并不是单纯的上传，而是会经过Jekyll程序的再处理。  </p>
+<p><code>注：若要使用Github Pages，请先注册Github账号 。</code> </p>
+<p><a href="http://jekyllrb.com/" title="Jekyll" target="_blank" rel="external">Jekyll</a>:一个静态站点生成器，它会根据网页源码生成静态文件。它提供了模板、变量、插件等功能，所以实际上可以用来编写整个网站。  </p>
+<h3 id="二、Git工具的安装和简单使用">二、Git工具的安装和简单使用</h3><p>Git是一个开源的分布式版本控制系统，用以有效、高速的处理从很小到非常大的项目版本管理。   </p>
+<p>下载安装Git：<a href="http://git-scm.com/book/en/Getting-Started-Installing-Git" title="下载Git" target="_blank" rel="external">点击这里下载</a>   </p>
+<p>注：安装的时候第三步记得选中<code>Simple context menu(Registry based)</code>，才可以在右键菜单中生成<code>Git GUI here</code>和<code>Git Bash Here</code>选项，如下图所示<br><img src="//dn-ioliu.qbox.me/gitinstall.jpg" alt="gitinstall"><br>安装完成后，找个目录 <code>右键</code>><code>Git Bash Here</code>，打开Git的命令行工具。在里面输入<code>git --help</code>，就能看到命令的使用帮助了。    </p>
+<p>附：<a href="http://rogerdudler.github.io/git-guide/index.zh.html" title="Git的简易指南" target="_blank" rel="external">Git的简易指南</a>    </p>
+<h3 id="三、搭建博客">三、搭建博客</h3><h4 id="1-新建项目">1.新建项目</h4><p>在你的电脑上，新建一个文件夹，作为博客的根目录，名字任取，假设我们取名为<code>demo</code>：</p>
+<blockquote>
+<p>$ mkdir demo</p>
+</blockquote>
+<p>进入文件夹<code>demo</code>，并初始化该文件夹：</p>
+<blockquote>
+<p>$ cd demo<br>$ git init</p>
+</blockquote>
+<p>然后创建一个没有父节点的分支<code>gh-pages</code>。因为github规定，只有该分支中的页面，才会生成网页文件：</p>
+<blockquote>
+<p>$ git checkout –orphan gh-pages</p>
+</blockquote>
+<h4 id="2-新建配置文件">2.新建配置文件</h4><p>在<code>demo</code>文件夹中新建一个名字为<code>_config.yml</code>的文本文件。它是jekyll的配置文件(具体配置请参考<a href="http://jekyllrb.com/docs/configuration/" title="官方配置" target="_blank" rel="external">官方配置</a>)。我们在其中写入以下内容，<code>注意冒号后面需要加空格</code>：</p>
+<blockquote>
+<p>baseurl: /demo</p>
+</blockquote>
+<p>文件夹结构为：    </p>
+<blockquote>
+<p>/demo<br>&nbsp;&nbsp;|–_config.yml    </p>
+</blockquote>
+<h4 id="3-新建模板文件">3.新建模板文件</h4><p>在博客根目录下新建一个文件夹，名字为<code>_layouts</code>，用于存放模板文件：</p>
+<blockquote>
+<p>$ mkdir _layouts</p>
+</blockquote>
+<p>进入<code>_layouts</code>文件夹，并新建一个<code>default.html</code>文件，作为博客的默认模板。并写入以下内容：<br><figure class="highlight handlebars"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="doctype">&lt;!doctype html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">http-equiv</span>=<span class="value">"content-type"</span> <span class="attribute">content</span>=<span class="value">"text/html;charset=utf-8"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">title</span>&gt;</span></span><span class="expression">&#123;&#123; <span class="variable">page.title</span> &#125;&#125;</span><span class="xml"><span class="tag">&lt;/<span class="title">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="title">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line">    </span><span class="expression">&#123;&#123; <span class="variable">content</span> &#125;&#125;</span><span class="xml"></span><br><span class="line">  <span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></span></span><br></pre></td></tr></table></figure></p>
+<p>Jekyll使用<a href="http://github.com/shopify/liquid/wiki/liquid-for-designers" target="_blank" rel="external">Liquid模板语言</a>，&#123;&#123; page.title &#125;&#125;表示文章标题，&#123;&#123; content &#125;&#125;表示文章内容，更多模板变量请参考<a href="http://jekyllrb.com/docs/variables/" target="_blank" rel="external">官方文档</a>。    </p>
+<p>文件夹结构变为：   </p>
+<blockquote>
+<p>/demo<br>&nbsp;&nbsp;|–_config.yml<br>&nbsp;&nbsp;|–_layouts<br>&nbsp;&nbsp;|&nbsp;&nbsp;|–default.html   </p>
+</blockquote>
+<h4 id="4-新建文章">4.新建文章</h4><p>回到<code>demo</code>文件夹，新建一个文件夹，名字为<code>_posts</code>，用于存放博客文章：</p>
+<blockquote>
+<p>$ mkdir _posts</p>
+</blockquote>
+<p>进入<code>_posts</code>文件夹，新建文本文档，名字假定为2013-12-12-hello-world.html<code>文件名称格式为年-月-日-标题.后缀名</code>，后缀名可以是<code>html</code>或者<code>markdown</code>。</p>
+<p>在该文件中，填入以下内容<br><figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">---  </span><br><span class="line"><span class="symbol">layout:</span> default  </span><br><span class="line"><span class="symbol">title:</span> 我的第一篇文章  </span><br><span class="line">---  </span><br><span class="line">&lt;h1&gt;<span class="expansion">&#123;&#123; page.title &#125;&#125;</span>&lt;<span class="regexp">/h1&gt;  </span><br><span class="line">&lt;p&gt;Hello,Jekyll!&lt;/p</span>&gt;  </span><br><span class="line">&lt;p&gt;<span class="expansion">&#123;&#123; page.date | date_to_string &#125;&#125;</span>&lt;<span class="regexp">/p&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>每篇文章的头部，都必须有一个<a href="http://jekyllrb.com/docs/frontmatter/" target="_blank" rel="external">YAML文件头</a>，用来设置一些元数据。以<code>---</code>标记开头和结尾，里面每一行设置一种元数据。   </p>
+<blockquote>
+<p>‘layout: default’ &gt;&gt;&gt; 表示该文章用的模板是_layouts文件夹下的default.html文件。<br>‘title: 我的第一篇文章’ &gt;&gt;&gt; 表示该文章的标题是’我的第一篇文章’。如果不设置这个值，则默认使用文件名中的标题，即’hello-world’。<br>‘page.title’ &gt;&gt;&gt; 就是文件头中设置的title，即’我的第一篇文章’。<br>‘page.date’ &gt;&gt;&gt; 即为文件名的日期，也可以在文件头中重新设置date。<br>‘date_to_string’ &gt;&gt;&gt; 表示将page.date 变量转换成人类可读的格式。   </p>
+</blockquote>
+<p>文件夹结构变为：   </p>
+<blockquote>
+<p>/demo<br>&nbsp;&nbsp;|–_config.yml<br>&nbsp;&nbsp;|–_layouts<br>&nbsp;&nbsp;|&nbsp;&nbsp;|–default.html<br>&nbsp;&nbsp;|–_posts<br>&nbsp;&nbsp;|&nbsp;&nbsp;|–2013-12-12-hello-world.html  </p>
+</blockquote>
+<h4 id="5-新建首页">5.新建首页</h4><p>回到<code>demo</code>文件夹，新建一个文件叫<code>index.html</code>并填入以下内容：<br><figure class="highlight handlebars"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml">---</span><br><span class="line">layout: default</span><br><span class="line">title: 我的Blog</span><br><span class="line">---</span><br><span class="line"><span class="tag">&lt;<span class="title">h2</span>&gt;</span></span><span class="expression">&#123;&#123; <span class="variable">page.title</span> &#125;&#125;</span><span class="xml"><span class="tag">&lt;/<span class="title">h2</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">p</span>&gt;</span>最新文章<span class="tag">&lt;/<span class="title">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">ul</span>&gt;</span></span><br><span class="line">    &#123;% for post in site.posts %&#125;;</span><br><span class="line">    <span class="tag">&lt;<span class="title">li</span>&gt;</span></span><span class="expression">&#123;&#123; <span class="variable">post.date</span> | <span class="variable">date</span>_<span class="variable">to</span>_<span class="variable">string</span> &#125;&#125;</span><span class="xml"> <span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"</span></span></span><span class="expression">&#123;&#123; <span class="variable">post.url</span> &#125;&#125;</span><span class="xml"><span class="tag"><span class="value">"</span>&gt;</span></span><span class="expression">&#123;&#123; <span class="variable">post.title</span> &#125;&#125;</span><span class="xml"><span class="tag">&lt;/<span class="title">a</span>&gt;</span><span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line">    &#123;% endfor %&#125;;</span><br><span class="line"><span class="tag">&lt;/<span class="title">ul</span>&gt;</span></span></span><br></pre></td></tr></table></figure></p>
+<p>这里的&#123;&#37; for post in site.posts &#37;&#125;表示对所有的文章进行循环遍历，这里要注意的是，<code>Liquid</code>模板语言规定，输出内容使用两层大括号，单纯的命令使用一层大括号。至于&#123;&#123; site.baseurl &#125;&#125;就是_config.yml中设置的baseurl变量。</p>
+<p>文件夹结构变成：</p>
+<blockquote>
+<p>/demo<br>&nbsp;&nbsp;|–_config.yml<br>&nbsp;&nbsp;|–_layouts<br>&nbsp;&nbsp;|&nbsp;&nbsp;|–default.html<br>&nbsp;&nbsp;|–_posts<br>&nbsp;&nbsp;|&nbsp;&nbsp;|–2013-12-12-hello-world.html<br>&nbsp;&nbsp;|–index.html    </p>
+</blockquote>
+<h4 id="6-发布博客">6.发布博客</h4><p>先将所有内容加入到本地git库<code>注：当前目录为demo</code>：</p>
+<blockquote>
+<p>$ git add .<br>$ git commit -m “first commit”  </p>
+</blockquote>
+<p>前往<a href="http://github.com" target="_blank" rel="external">Github</a>，新建一个名为<code>demo</code>的库，建好后将本地内容推送到Github上你刚刚建的demo库中<code>注：将下面命令中的username换成你自己的username</code>：</p>
+<blockquote>
+<p>$ git remote add origin <a href="https://github.com/username/demo.git" target="_blank" rel="external">https://github.com/username/demo.git</a><br>$ git push origin gh-pages   </p>
+</blockquote>
+<p>上传成功之后，等10分钟左右，访问 <code>http://username.github.com/demo/</code> 就可以看到博客已经生成了（将username换成你的用户名）。</p>
+<h4 id="7-绑定域名">7.绑定域名</h4><p>如果你不想用<code>http://username.github.com/demo/</code>这个域名，可以换成自己的域名。</p>
+<p>具体方法是在repo的根目录下面，新建一个名为<code>CNAME</code>的文本文件，里面写入你要绑定的域名，比如example.com或者xxx.example.com。</p>
+<p>如果绑定的是顶级域名，则DNS要新建一条A记录，指向204.232.175.78。如果绑定的是二级域名，则DNS要新建一条CNAME记录，指向username.github.com（请将username换成你的用户名）。此外，别忘了将_config.yml文件中的baseurl改成根目录”/“。</p>
+<p>至此，最简单的Blog就算搭建完成了。进一步的完善，请参考Jekyll创始人的<a href="http://github.com/mojombo/tpw" target="_blank" rel="external">示例库</a>，以及其他用Jekyll搭建的<a href="http://github.com/jekyll/jekyll/wiki/Sites" target="_blank" rel="external">Blog</a>。</p>
+<p>(完)</p>
+<blockquote>
+<p>特别感谢：<a href="http://www.ruanyifeng.com/blog/2012/08/blogging_with_jekyll.html" title="阮一峰：搭建一个免费的，无限流量的Blog----github Pages和Jekyll入门" target="_blank" rel="external">阮一峰老师</a>     </p>
+</blockquote>
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/GitHub-Pages/" rel="tag">#GitHub Pages</a>
+          
+            <a href="/tags/Jekyll/" rel="tag">#Jekyll</a>
+          
+            <a href="/tags/免费博客/" rel="tag">#免费博客</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2013/preferences-sublime/" rel="next" title="Sublime Text 的简单安装与详细配置">
+                <i class="fa fa-chevron-left"></i> Sublime Text 的简单安装与详细配置
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2014/brackets/" rel="prev" title="Brackets - 强大免费的开源跨平台Web前端开发工具IDE">
+                Brackets - 强大免费的开源跨平台Web前端开发工具IDE <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2013/helloworld-for-githubpages/"
+           data-title="利用Github Pages和Jekyll搭建无限流量的免费Blog" data-url="https://ioliu.cn/2013/helloworld-for-githubpages/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="images/default_avatar.png"
+               alt="Heroy" />
+          <p class="site-author-name" itemprop="name">Heroy</p>
+          <p class="site-description motion-element" itemprop="description">隐约雷鸣，阴霾天空，但盼风雨来，能留你在此</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">9</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            <a href="/categories">
+              <span class="site-state-item-count">5</span>
+              <span class="site-state-item-name">分类</span>
+              </a>
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">22</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/heroyy" target="_blank">
+                  
+                    <i class="fa fa-github"></i> GitHub
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/1842336184" target="_blank">
+                  
+                    <i class="fa fa-weibo"></i> Weibo
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="mailto:yy.liu@foxmail.com" target="_blank">
+                  
+                    <i class="fa fa-envelope"></i> Email
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://eooo.sinaapp.com" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> Eooo
+                  
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="http://creativecommons.org/licenses/by-nc-sa/4.0" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、Github和Jekyll是什么？"><span class="nav-number">1.</span> <span class="nav-text">一、Github和Jekyll是什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、Git工具的安装和简单使用"><span class="nav-number">2.</span> <span class="nav-text">二、Git工具的安装和简单使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、搭建博客"><span class="nav-number">3.</span> <span class="nav-text">三、搭建博客</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-新建项目"><span class="nav-number">3.1.</span> <span class="nav-text">1.新建项目</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-新建配置文件"><span class="nav-number">3.2.</span> <span class="nav-text">2.新建配置文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-新建模板文件"><span class="nav-number">3.3.</span> <span class="nav-text">3.新建模板文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-新建文章"><span class="nav-number">3.4.</span> <span class="nav-text">4.新建文章</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-新建首页"><span class="nav-number">3.5.</span> <span class="nav-text">5.新建首页</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-发布博客"><span class="nav-number">3.6.</span> <span class="nav-text">6.发布博客</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-绑定域名"><span class="nav-number">3.7.</span> <span class="nav-text">7.绑定域名</span></a></li></ol></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2013 - 
+  <span itemprop="copyrightYear">2015</span>
+  <span class="with-love">
+    <i class="icon-next-heart fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Heroy&nbsp;&nbsp;|&nbsp;&nbsp;
+  <a href="http://www.miitbeian.gov.cn/" class="theme-link" target="_blank">粤ICP备15050037号</a></span>
+</div>
+
+<div class="powered-by">
+  Power By <a class="theme-link" href="http://hexo.io">Hexo</a> 
+</div>
+
+<div class="theme-info">
+  Theme By
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  
+
+
+  
+
+
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.0"></script>
+
+
+
+  
+  
+<script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.0"></script>
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    motionMiddleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+      if (CONFIG.sidebar === 'post') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"ioliu"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+
+  
+
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("R9cQjqaD9AXPKY7AQiU6U6yl", "YHUU5n9sbvpRQCdiIU8aRsmH");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          //if (results.length == 0) {
+          //  $visitors.find(COUNT_CONTAINER_REF).text(0);
+          //  return;
+          //}
+          $visitors.find(COUNT_CONTAINER_REF).text(0);
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+
+</body>
+</html>

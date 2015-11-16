@@ -1,0 +1,921 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Sublime Text,插件,编辑器,配置," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="云淡风轻" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.0" />
+
+
+
+
+
+
+<meta name="description" content="最近迷上了一款文本编辑器叫Sublime Text，官网，给人的第一感觉是轻，而且里面的各种自定义配置用起来真的是如鱼得水。写这篇文章主要是防止以后到处寻找而做个备份。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Sublime Text 的简单安装与详细配置">
+<meta property="og:url" content="https://ioliu.cn/2013/preferences-sublime/index.html">
+<meta property="og:site_name" content="云淡风轻">
+<meta property="og:description" content="最近迷上了一款文本编辑器叫Sublime Text，官网，给人的第一感觉是轻，而且里面的各种自定义配置用起来真的是如鱼得水。写这篇文章主要是防止以后到处寻找而做个备份。">
+<meta property="og:image" content="https://ioliu.cn//dn-ioliu.qbox.me/iosublime.png">
+<meta property="og:updated_time" content="2015-11-16T15:21:24.813Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Sublime Text 的简单安装与详细配置">
+<meta name="twitter:description" content="最近迷上了一款文本编辑器叫Sublime Text，官网，给人的第一感觉是轻，而且里面的各种自定义配置用起来真的是如鱼得水。写这篇文章主要是防止以后到处寻找而做个备份。">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: '[object Object]',
+    fancybox: true,
+    motion: true
+  };
+</script>
+
+  <title> Sublime Text 的简单安装与详细配置 | 云淡风轻 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-61934506-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?9cab9232535f34b793312a5204874e45";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">云淡风轻</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">一个安静的角落</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Sublime Text 的简单安装与详细配置
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2013-12-12T11:10:01+08:00" content="2013-12-12">
+              2013-12-12
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/工具/" itemprop="url" rel="index">
+                    <span itemprop="name">工具</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2013/preferences-sublime/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2013/preferences-sublime/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2013/preferences-sublime/" class="leancloud_visitors" data-flag-title="Sublime Text 的简单安装与详细配置">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="//dn-ioliu.qbox.me/iosublime.png" alt="SublimeText"></p>
+<p>最近迷上了一款文本编辑器叫<code>Sublime Text</code>，<a href="http://www.sublimetext.com/" title="Sublime Text 官网" target="_blank" rel="external">官网</a>，给人的第一感觉是轻，而且里面的各种自定义配置用起来真的是如鱼得水。写这篇文章主要是防止以后到处寻找而做个备份。<br><a id="more"></a></p>
+<h3 id="一、Sublime_Text的下载安装">一、<code>Sublime Text</code>的下载安装</h3><p>进入<code>Sublime Text</code>的<a href="http://www.sublimetext.com/" title="Sublime Text 官网" target="_blank" rel="external">官网</a>，下载<code>Sublime Text</code>，有2和3版本，请根据自己爱好进行下载安装。</p>
+<h3 id="二、Package_Control的安装">二、<code>Package Control</code>的安装</h3><p>首先打开<code>Console</code>&gt;&gt;&gt;快捷键：<code>Ctrl+Esc下面的那个键</code>，输入下面的代码，然后回车(请注意软件自身的版本)<br>如果是<code>Sublime Text3</code>，代码如下：<br><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib.request,os; pf = <span class="string">'Package Control.sublime-package'</span>; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); open(os.path.<span class="keyword">join</span>(ipp, pf), <span class="string">'wb'</span>).<span class="keyword">write</span>(urllib.request.urlopen( <span class="string">'http://sublime.wbond.net/'</span> + pf.replace(<span class="string">' '</span>,<span class="string">'%20'</span>)).<span class="keyword">read</span>())</span><br></pre></td></tr></table></figure></p>
+<p>如果是<code>Sublime Text 2</code>，则代码如下：<br><figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import urllib2,os; pf=<span class="string">'Package Control.sublime-package'</span>; ipp = sublime.installed_packages_path(); os.makedirs( ipp ) <span class="keyword">if</span> <span class="keyword">not</span> os.path.<span class="keyword">exists</span>(ipp) <span class="keyword">else</span> None; urllib2.install_opener( urllib2.build_opener( urllib2.ProxyHandler( ))); <span class="keyword">open</span>( os.path.<span class="keyword">join</span>( ipp, pf), <span class="string">'wb'</span> ).<span class="keyword">write</span>( urllib2.urlopen( <span class="string">'http://sublime.wbond.net/'</span> +pf.replace( <span class="string">' '</span>,<span class="string">'%20'</span> )).<span class="keyword">read</span>()); <span class="keyword">print</span>( <span class="string">'Please restart Sublime Text to finish installation'</span>)</span><br></pre></td></tr></table></figure></p>
+<p>重启软件即可。</p>
+<h3 id="三、插件的安装与卸载">三、插件的安装与卸载</h3><h4 id="1-_插件的安装：">1. 插件的安装：</h4><p>重启软件后，快捷键<code>Ctrl+Shift+P</code>就可以打开<code>Package Control</code>了，输入关键字<code>Install Package</code> + <code>回车</code>，会进入插件候选安装界面，输入你要安装的插件名称，如<code>Emmet</code>，找到后，回车安装。</p>
+<h4 id="2-_插件的卸载：">2. 插件的卸载：</h4><p>打开<code>Package Control</code>，输入关键字<code>Remove Package</code>+<code>回车</code>，会进入插件候选删除界面，输入你要卸载的插件名称，如<code>Emmet</code>，找到后，回车卸载。</p>
+<h4 id="3-_推荐插件:">3. 推荐插件:</h4><ol>
+<li><a href="https://sublime.wbond.net/installation" target="_blank" rel="external">Package Control</a></li>
+<li><a href="https://github.com/kemayo/sublime-text-git" target="_blank" rel="external">Git</a></li>
+<li><a href="https://github.com/jisaacks/GitGutter" target="_blank" rel="external">GitGutter</a></li>
+<li><a href="http://emmet.io/" target="_blank" rel="external">Emmet</a></li>
+<li><a href="https://github.com/alienhard/SublimeAllAutocomplete" target="_blank" rel="external">AllAutoComplete</a></li>
+<li><a href="http://weslly.github.io/ColorPicker/" target="_blank" rel="external">ColorPicker</a></li>
+<li><a href="https://github.com/revolunet/sublimetext-markdown-preview" target="_blank" rel="external">MarkdownPreview</a></li>
+<li><a href="https://github.com/spadgos/sublime-jsdocs" target="_blank" rel="external">DocBlockr</a></li>
+<li><a href="https://github.com/SublimeCodeIntel/SublimeCodeIntel" target="_blank" rel="external">SublimeCodeIntel</a></li>
+<li><a href="https://github.com/facelessuser/BracketHighlighter" target="_blank" rel="external">BracketHighlighter</a></li>
+<li><a href="https://github.com/titoBouzout/SideBarFolders" target="_blank" rel="external">SideBarFolders</a></li>
+<li><a href="https://github.com/titoBouzout/SideBarEnhancements" target="_blank" rel="external">SideBarEnhancements</a></li>
+</ol>
+<h4 id="4-_推荐字体:">4. 推荐字体:</h4><blockquote>
+<p><a href="http://7xilig.com1.z0.glb.clouddn.com/YaHei.Consolas.1.11b.rar" target="_blank" rel="external">YaHei.Consolas</a>   </p>
+</blockquote>
+<h4 id="5-_推荐主题">5. 推荐主题</h4><blockquote>
+<p>Centurion<br>Afterglow </p>
+</blockquote>
+<h3 id="四、Preferences-sublime文件的详细配置">四、Preferences.sublime文件的详细配置</h3><p>接下来就是&gt;&gt;&gt;菜单栏<code>Preferences&gt;Setting User</code>打开<code>Preferences.sublime</code>配置文件，去搜索了下，具体配置如下:<br><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="regexp">//</span>主题文件的位置</span><br><span class="line">    <span class="string">"theme"</span><span class="symbol">:<span class="string">"Centurion.sublime-theme"</span></span>,</span><br><span class="line">    <span class="string">"color_scheme"</span><span class="symbol">:<span class="string">"Packages/Color Scheme - Default/Monokai.tmTheme"</span></span>,</span><br><span class="line">    <span class="regexp">//</span><span class="string">"theme"</span><span class="symbol">:</span> <span class="string">"Afterglow-orange.sublime-theme"</span>,</span><br><span class="line">    <span class="regexp">//</span><span class="string">"color_scheme"</span><span class="symbol">:</span> <span class="string">"Packages/Theme - Afterglow/Afterglow.tmTheme"</span>,</span><br><span class="line">    <span class="regexp">//</span>字体</span><br><span class="line">    <span class="string">"font_face"</span><span class="symbol">:<span class="string">"Consolas"</span></span>,</span><br><span class="line">    <span class="regexp">//</span><span class="string">"font_face"</span><span class="symbol">:</span> <span class="string">"YaHei Consolas Hybrid"</span>,</span><br><span class="line">    <span class="regexp">//</span>字体大小</span><br><span class="line">    <span class="string">"font_size"</span><span class="symbol">:</span><span class="number">11.0</span>,</span><br><span class="line">    <span class="string">"ignored_packages"</span><span class="symbol">:</span></span><br><span class="line">    [</span><br><span class="line">        <span class="string">"Vintage"</span></span><br><span class="line">    ],</span><br><span class="line">    <span class="regexp">//</span>每行code相对于上一行代码的上边距</span><br><span class="line">    <span class="string">"line_padding_top"</span><span class="symbol">:</span><span class="number">2</span>,</span><br><span class="line">    <span class="regexp">//tab</span>键缩进用空格代替</span><br><span class="line">    <span class="string">"translate_tabs_to_spaces"</span><span class="symbol">:true</span>,</span><br><span class="line">    <span class="regexp">//</span>自动换行</span><br><span class="line">    <span class="string">"word_warp"</span><span class="symbol">:true</span>,</span><br><span class="line">    <span class="regexp">//tab</span>键制表符宽度</span><br><span class="line">    <span class="string">"tab_size"</span><span class="symbol">:</span><span class="number">4</span>,</span><br><span class="line">    <span class="regexp">//</span>是否显示行号</span><br><span class="line">    <span class="string">"line_number"</span><span class="symbol">:true</span>,</span><br><span class="line">    <span class="regexp">//</span>是否显示代码折叠按钮</span><br><span class="line">    <span class="string">"fold_buttons"</span><span class="symbol">:true</span>,</span><br><span class="line">    <span class="regexp">//</span>不管鼠标在不在行号边栏，代码折叠按钮一直显示</span><br><span class="line">    <span class="string">"fade_fold_buttons"</span><span class="symbol">:true</span>,</span><br><span class="line">    <span class="regexp">//</span>按回车时，自动与制表位对其</span><br><span class="line">    <span class="string">"auto_indent"</span><span class="symbol">:true</span>,</span><br><span class="line">    <span class="regexp">//</span>自动匹配引号，括号等</span><br><span class="line">    <span class="string">"auto_match_enabled"</span><span class="symbol">:true</span>,</span><br><span class="line">    <span class="regexp">//</span>突出显示当前光标所在行</span><br><span class="line">    <span class="string">"highlight_line"</span><span class="symbol">:true</span>,</span><br><span class="line">    <span class="regexp">//</span>设置光标闪动方式</span><br><span class="line">    <span class="string">"caret_style"</span><span class="symbol">:<span class="string">"smooth"</span></span>,</span><br><span class="line">    <span class="regexp">//</span>是否特殊显示当前光标所在的括号、代码头尾闭合标记</span><br><span class="line">    <span class="string">"match_brackets"</span><span class="symbol">:true</span>,</span><br><span class="line">    <span class="regexp">//</span>切换到其他文件标签或点击其他非本软件区域，文件自动保存</span><br><span class="line">    <span class="string">"save_on_focus_last"</span><span class="symbol">:true</span>,</span><br><span class="line">    <span class="regexp">//</span>代码提示</span><br><span class="line">    <span class="string">"auto_complete"</span><span class="symbol">:true</span>,</span><br><span class="line">    <span class="regexp">//</span>设置为<span class="keyword">true</span>时，按<span class="constant">Tab会</span>根据前后环境进行代码自动匹配补全</span><br><span class="line">    <span class="string">"tab_completion"</span><span class="symbol">:true</span>,</span><br><span class="line">    <span class="regexp">//</span>选中的文本按<span class="constant">Ctrl+F时</span>，自动复制到查找面板的文本框里</span><br><span class="line">    <span class="string">"find_selected_text"</span><span class="symbol">:true</span>,</span><br><span class="line">    <span class="regexp">//</span>防止<span class="constant">SublimeText自</span>动检查更新</span><br><span class="line">    <span class="string">"update_check"</span><span class="symbol">:false</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>^_^/，好了，完工，具体使用情况还是要依靠自己的喜好而来，这里的配置并不唯一，请不要在意这些细节~。</p>
+<blockquote>
+<p>这里留下**工具，请支持正版。<a href="http://pan.baidu.com/s/128SAL" title="百度网盘下载" target="_blank" rel="external">sublime.text.3.x64.patch.by.荒野无灯</a>，**工具具体使用方法，请自行搜索。     </p>
+</blockquote>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//3083</span></span><br><span class="line">----- BEGIN LICENSE -----</span><br><span class="line">Andrew Weber</span><br><span class="line">Single User License</span><br><span class="line">EA7E-<span class="number">855605</span></span><br><span class="line"><span class="number">813</span>A03DD <span class="number">5E4</span>AD9E6 <span class="number">6</span>C0EEB94 BC99798F</span><br><span class="line"><span class="number">942194</span>A6 <span class="number">02396E98</span> E62C9979 <span class="number">4</span>BB979FE</span><br><span class="line"><span class="number">91424</span>C9D A45400BF F6747D88 <span class="number">2F</span>B88078</span><br><span class="line"><span class="number">90F</span>5CC94 <span class="number">1</span>CDC92DC <span class="number">8457107</span>A F151657B</span><br><span class="line"><span class="number">1</span>D22E383 A997F016 <span class="number">42397640</span> <span class="number">33F</span>41CFC</span><br><span class="line">E1D0AE85 A0BBD039 <span class="number">0E9</span>C8D55 E1B89D5D</span><br><span class="line"><span class="number">5</span>CDB7036 E56DE1C0 EFCC0840 <span class="number">650</span>CD3A6</span><br><span class="line">B98FC99C <span class="number">8F</span>AC73EE D2B95564 DF450523</span><br><span class="line">------ END LICENSE ------</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>SublimeText官网:[<a href="http://www.sublimetext.com/" target="_blank" rel="external">http://www.sublimetext.com/</a>] </p>
+</blockquote>
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Sublime-Text/" rel="tag">#Sublime Text</a>
+          
+            <a href="/tags/插件/" rel="tag">#插件</a>
+          
+            <a href="/tags/编辑器/" rel="tag">#编辑器</a>
+          
+            <a href="/tags/配置/" rel="tag">#配置</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2013/helloworld-for-githubpages/" rel="prev" title="利用Github Pages和Jekyll搭建无限流量的免费Blog">
+                利用Github Pages和Jekyll搭建无限流量的免费Blog <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2013/preferences-sublime/"
+           data-title="Sublime Text 的简单安装与详细配置" data-url="https://ioliu.cn/2013/preferences-sublime/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="images/default_avatar.png"
+               alt="Heroy" />
+          <p class="site-author-name" itemprop="name">Heroy</p>
+          <p class="site-description motion-element" itemprop="description">隐约雷鸣，阴霾天空，但盼风雨来，能留你在此</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">9</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            <a href="/categories">
+              <span class="site-state-item-count">5</span>
+              <span class="site-state-item-name">分类</span>
+              </a>
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">22</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/heroyy" target="_blank">
+                  
+                    <i class="fa fa-github"></i> GitHub
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/1842336184" target="_blank">
+                  
+                    <i class="fa fa-weibo"></i> Weibo
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="mailto:yy.liu@foxmail.com" target="_blank">
+                  
+                    <i class="fa fa-envelope"></i> Email
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://eooo.sinaapp.com" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> Eooo
+                  
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="http://creativecommons.org/licenses/by-nc-sa/4.0" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、Sublime_Text的下载安装"><span class="nav-number">1.</span> <span class="nav-text">一、Sublime Text的下载安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、Package_Control的安装"><span class="nav-number">2.</span> <span class="nav-text">二、Package Control的安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、插件的安装与卸载"><span class="nav-number">3.</span> <span class="nav-text">三、插件的安装与卸载</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-_插件的安装："><span class="nav-number">3.1.</span> <span class="nav-text">1. 插件的安装：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-_插件的卸载："><span class="nav-number">3.2.</span> <span class="nav-text">2. 插件的卸载：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-_推荐插件:"><span class="nav-number">3.3.</span> <span class="nav-text">3. 推荐插件:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-_推荐字体:"><span class="nav-number">3.4.</span> <span class="nav-text">4. 推荐字体:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-_推荐主题"><span class="nav-number">3.5.</span> <span class="nav-text">5. 推荐主题</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四、Preferences-sublime文件的详细配置"><span class="nav-number">4.</span> <span class="nav-text">四、Preferences.sublime文件的详细配置</span></a></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2013 - 
+  <span itemprop="copyrightYear">2015</span>
+  <span class="with-love">
+    <i class="icon-next-heart fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Heroy&nbsp;&nbsp;|&nbsp;&nbsp;
+  <a href="http://www.miitbeian.gov.cn/" class="theme-link" target="_blank">粤ICP备15050037号</a></span>
+</div>
+
+<div class="powered-by">
+  Power By <a class="theme-link" href="http://hexo.io">Hexo</a> 
+</div>
+
+<div class="theme-info">
+  Theme By
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  
+
+
+  
+
+
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.0"></script>
+
+
+
+  
+  
+<script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.0"></script>
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    motionMiddleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+      if (CONFIG.sidebar === 'post') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"ioliu"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+
+  
+
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("R9cQjqaD9AXPKY7AQiU6U6yl", "YHUU5n9sbvpRQCdiIU8aRsmH");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          //if (results.length == 0) {
+          //  $visitors.find(COUNT_CONTAINER_REF).text(0);
+          //  return;
+          //}
+          $visitors.find(COUNT_CONTAINER_REF).text(0);
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+
+</body>
+</html>
